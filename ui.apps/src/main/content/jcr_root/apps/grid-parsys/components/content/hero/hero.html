@@ -1,0 +1,27 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+data-sly-call="${clientlib.css @ categories= 'grid.lib'}" />
+
+<div class="d-table">
+    <div class="d-tr">
+         <div class="d-td">
+				<img data-sly-use.image="image.js"
+                    src="${image.src}"
+                    alt="HERO"
+                    width="100px"
+                    data-sly-test="${image.src}"/>
+         </div>
+          <div class="d-td">
+			<div class="d-table">
+				 <div class="d-tr">
+                     <h1 data-sly-use.title="title.js">${title.text}</h1>
+                 </div>
+                 <div class="d-tr">
+                     <p data-sly-use.text="text.js" data-sly-unwrap="${text.context == text.CONST.CONTEXT_HTML}">${text.text  @ context=text.context}</p>
+                 </div>
+                 <div class="d-tr">
+                     <a data-sly-use.link="link.js" href="${link.link}" target="${link.opening}">${link.text}</a>
+                 </div>
+            </div>
+         </div>
+	</div>
+</div>

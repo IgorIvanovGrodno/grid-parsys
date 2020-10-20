@@ -1,0 +1,26 @@
+<div
+	data-sly-use.colControl="com.grid.parsys.core.models.MultiColumnControl"
+	data-sly-unwrap></div>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+data-sly-call="${clientlib.css @ categories= 'grid.lib'}" />
+
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder cq-marker-start" data-emptytext="Start of ${colControl.columns} Columns and ${colControl.rows} Rows">
+        <!--Start of Grid-->
+    </div>
+
+
+<div class="d-table">
+    <div data-sly-list="${colControl.rowsList}" data-sly-unwrap>
+          <div class="d-tr">
+              <div data-sly-list="${item.columnList}" data-sly-unwrap>
+                <div class="d-td">
+                    <sly data-sly-test.par="${'{0}{1}{2}' @format=['par_',item.count,item.rowCount]}" />
+                        <div data-sly-resource="${@ path=par, resourceType='wcm/foundation/components/parsys'}" data-sly-unwrap></div>
+                </div>
+              </div>
+          </div>
+    </div>
+</div>
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder cq-marker-end" data-emptytext="End of Grid">
+        <!--End of Grid -->
+</div>
